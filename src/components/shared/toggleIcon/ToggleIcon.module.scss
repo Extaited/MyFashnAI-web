@@ -1,0 +1,51 @@
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    background-color: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    path {
+        transition: all 0.3s ease-in;
+    }
+
+    path:first-child {
+        stroke: #808080;
+        transition: stroke 0.3s ease-out;
+    }
+
+    path:last-child {
+        stroke: #808080;
+        transform: translateX(0);
+        transition: transform 0.3s ease-out, stroke 0.3s ease-out;
+    }
+
+    &:hover {
+        border-color: #FFFFFF;
+
+        path:first-child,
+        path:last-child {
+            stroke: #FFFFFF;
+        }
+    }
+
+    &.checked {
+        path:first-child,
+        path:last-child {
+            stroke: #3B82F6;
+        }
+
+        path:last-child {
+            transform: translateX(8px);
+        }
+    }
+}

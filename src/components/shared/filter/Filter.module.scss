@@ -1,0 +1,164 @@
+.filter {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 333;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px
+    }
+
+    &__dropdown {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    &__dropdown-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: medium;
+        color: #FFFFFF;
+        border: 1px solid #808080;
+        border-radius: 4px;
+        background-color: transparent;
+        padding: 8px 12px;
+        gap: 5px;
+        min-width: 0; // Важно для предотвращения сжатия
+        white-space: nowrap; // Текст в одну строку
+        overflow: hidden; // Скрываем текст, который не помещается
+        text-overflow: ellipsis; // Добавляем многоточие
+        max-width: 220px;
+        transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
+
+        .icon__box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+
+            path {
+                stroke: #808080;
+                transition: stroke 0.3s ease-out;
+            }
+        }
+
+        &:hover {
+            border-color: #FFFFFF;
+
+            .icon path {
+                stroke: #FFFFFF;
+            }
+        }
+
+        &--open {
+            border-color: #FFFFFF;
+            background-color: #1A1A1A;
+
+            .icon path {
+                stroke: #FFFFFF;
+            }
+        }
+
+        &--active {
+            border-color: #3B82F6;
+            background-color: #1A1A1A;
+
+            .icon path {
+                stroke: #FFFFFF;
+            }
+
+            &:hover {
+                border-color: #3B82F6;
+            }
+        }
+    }
+
+    &__dropdown-list {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    &__dropdown-item {
+        width: 100%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: medium;
+        color: #FFFFFF;
+        background-color: #2A2A2A;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-out,
+                    color 0.3s ease-out;
+
+        &:hover {
+            color: #3B82F6;
+            background-color: #1A1A1A;
+        }
+
+        &:last-child:hover {
+            color: red;
+        }
+    }
+
+    .toggle-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: medium;
+        color: #FFFFFF;
+        gap: 5px;
+    }
+
+    &__clear-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 500; // Поставил 500 т.к. 600 слишком жирно
+        color: #F2F4F7;
+        background-color: #3B82F6;
+        border-radius: 8px;
+        padding: 8px 12px;
+        gap: 5px;
+        transition: filter 0.3s ease-out;
+
+        .icon {
+            width: 18px;
+            height: 18px;
+
+            path {
+                stroke: currentColor !important;
+            }
+        }
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}
